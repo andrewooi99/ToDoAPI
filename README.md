@@ -4,7 +4,7 @@
 
 ### Prerequisites
 - [.Net 7.0](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
-- [Window Docker] (if wish to run local in docker)(https://docs.docker.com/desktop/install/windows-install/)
+- [Window Docker](https://docs.docker.com/desktop/install/windows-install/) (if wish to run local in docker)
 - [MSSQL](https://www.microsoft.com/en-my/sql-server/sql-server-downloads)
 
 ### How to run it local dotnet 
