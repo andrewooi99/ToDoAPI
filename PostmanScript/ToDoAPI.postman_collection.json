@@ -1,0 +1,531 @@
+{
+	"info": {
+		"_postman_id": "3d6ad913-caa4-4ee2-8a66-426caab7d720",
+		"name": "ToDoAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3961976"
+	},
+	"item": [
+		{
+			"name": "RegisterAdmin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"ToDoAdmin\",\r\n    \"password\": \"Password@123\",\r\n    \"email\": \"todo_admin@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5251/api/Authentication/RegisterAdmin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5251",
+					"path": [
+						"api",
+						"Authentication",
+						"RegisterAdmin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"ToDoUser\",\r\n    \"email\": \"todo_user@gmail.com\",\r\n    \"password\": \"Password@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5251/api/Authentication/Register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5251",
+					"path": [
+						"api",
+						"Authentication",
+						"Register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Username\": \"ToDoAdmin\",\r\n    \"password\": \"Password@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5251/api/Authentication/Login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5251",
+					"path": [
+						"api",
+						"Authentication",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5251/api/Authentication/Login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5251",
+					"path": [
+						"api",
+						"Authentication",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetToDoItemWithTags",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVG9Eb0FkbWluIiwianRpIjoiNmI0MjhkYTMtOTg4MS00NzRmLWFhOGEtNWQ5Mzg2ZmEwZDE3IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjpbIkFkbWluIiwiVXNlciJdLCJleHAiOjE3MDA4ODkzNzEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.NCIBABBvJB2QSHjPhfo6ODLjwkXTDS8PHaZ38IuqYFo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5251/api/ToDo/GetToDoItemWithTags?Status=1&Status=2&Status=3&DueDateFrom=2023-11-10&DueDateTo=2023-11-20&Sorting=DueDate|DESC&Sorting=Status|ASC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5251",
+					"path": [
+						"api",
+						"ToDo",
+						"GetToDoItemWithTags"
+					],
+					"query": [
+						{
+							"key": "Status",
+							"value": "1"
+						},
+						{
+							"key": "Status",
+							"value": "2"
+						},
+						{
+							"key": "Status",
+							"value": "3"
+						},
+						{
+							"key": "DueDateFrom",
+							"value": "2023-11-10"
+						},
+						{
+							"key": "DueDateTo",
+							"value": "2023-11-20"
+						},
+						{
+							"key": "Sorting",
+							"value": "DueDate|DESC"
+						},
+						{
+							"key": "Sorting",
+							"value": "Status|ASC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateToDoItem",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVG9Eb0FkbWluIiwianRpIjoiNmI0MjhkYTMtOTg4MS00NzRmLWFhOGEtNWQ5Mzg2ZmEwZDE3IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjpbIkFkbWluIiwiVXNlciJdLCJleHAiOjE3MDA4ODkzNzEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.NCIBABBvJB2QSHjPhfo6ODLjwkXTDS8PHaZ38IuqYFo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\": \"ToDo 2\",\r\n    \"Description\": \"ToDo 2 Description\",\r\n    \"DueDate\": \"2023-11-20\",\r\n    \"Status\": 2,\r\n    \"Priority\": 1,\r\n    \"ToDoItemTagList\": [\r\n        {\r\n            \"TagKey\": \"ToDo 2 Tag 1\",\r\n            \"TagValue\": \"ToDo 2 Value 1\"\r\n        },        \r\n        {\r\n            \"TagKey\": \"ToDo 2 Tag 2\",\r\n            \"TagValue\": \"ToDo 2 Value 2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5251/api/ToDo/CreateToDoItem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5251",
+					"path": [
+						"api",
+						"ToDo",
+						"CreateToDoItem"
+					],
+					"query": [
+						{
+							"key": "Status",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "Status",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "DueDateFrom",
+							"value": "2023-11-10",
+							"disabled": true
+						},
+						{
+							"key": "DueDateTo",
+							"value": "2023-11-18",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateToDoItem",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVG9Eb0FkbWluIiwianRpIjoiNmI0MjhkYTMtOTg4MS00NzRmLWFhOGEtNWQ5Mzg2ZmEwZDE3IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjpbIkFkbWluIiwiVXNlciJdLCJleHAiOjE3MDA4ODkzNzEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.NCIBABBvJB2QSHjPhfo6ODLjwkXTDS8PHaZ38IuqYFo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\": 1,\r\n    \"Name\": \"ToDo 1\",\r\n    \"Description\": \"Test\",\r\n    \"Status\": 1,\r\n    \"Priority\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5251/api/ToDo/UpdateToDoItem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5251",
+					"path": [
+						"api",
+						"ToDo",
+						"UpdateToDoItem"
+					],
+					"query": [
+						{
+							"key": "Status",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "Status",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "DueDateFrom",
+							"value": "2023-11-10",
+							"disabled": true
+						},
+						{
+							"key": "DueDateTo",
+							"value": "2023-11-18",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteToDoItem",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVG9Eb0FkbWluIiwianRpIjoiNmI0MjhkYTMtOTg4MS00NzRmLWFhOGEtNWQ5Mzg2ZmEwZDE3IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjpbIkFkbWluIiwiVXNlciJdLCJleHAiOjE3MDA4ODkzNzEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.NCIBABBvJB2QSHjPhfo6ODLjwkXTDS8PHaZ38IuqYFo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5251/api/ToDo/DeleteToDoItem?id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5251",
+					"path": [
+						"api",
+						"ToDo",
+						"DeleteToDoItem"
+					],
+					"query": [
+						{
+							"key": "Status",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "Status",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "DueDateFrom",
+							"value": "2023-11-10",
+							"disabled": true
+						},
+						{
+							"key": "DueDateTo",
+							"value": "2023-11-18",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateToDoItemTag",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVG9Eb0FkbWluIiwianRpIjoiNmI0MjhkYTMtOTg4MS00NzRmLWFhOGEtNWQ5Mzg2ZmEwZDE3IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjpbIkFkbWluIiwiVXNlciJdLCJleHAiOjE3MDA4ODkzNzEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.NCIBABBvJB2QSHjPhfo6ODLjwkXTDS8PHaZ38IuqYFo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ToDoId\": 1,\r\n    \"TagKey\": \"ToDo 1 Extra 2\",\r\n    \"TagValue\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5251/api/ToDo/CreateToDoItemTag",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5251",
+					"path": [
+						"api",
+						"ToDo",
+						"CreateToDoItemTag"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateToDoItemTag",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVG9Eb0FkbWluIiwianRpIjoiNmI0MjhkYTMtOTg4MS00NzRmLWFhOGEtNWQ5Mzg2ZmEwZDE3IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjpbIkFkbWluIiwiVXNlciJdLCJleHAiOjE3MDA4ODkzNzEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.NCIBABBvJB2QSHjPhfo6ODLjwkXTDS8PHaZ38IuqYFo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\": 6,\r\n    \"TagKey\": \"ToDo Tag 6\",\r\n    \"TagValue\": \"tag 6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5251/api/ToDo/UpdateToDoItemTag",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5251",
+					"path": [
+						"api",
+						"ToDo",
+						"UpdateToDoItemTag"
+					],
+					"query": [
+						{
+							"key": "Status",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "Status",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "DueDateFrom",
+							"value": "2023-11-10",
+							"disabled": true
+						},
+						{
+							"key": "DueDateTo",
+							"value": "2023-11-18",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteToDoItemTag",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVG9Eb0FkbWluIiwianRpIjoiNmI0MjhkYTMtOTg4MS00NzRmLWFhOGEtNWQ5Mzg2ZmEwZDE3IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjpbIkFkbWluIiwiVXNlciJdLCJleHAiOjE3MDA4ODkzNzEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.NCIBABBvJB2QSHjPhfo6ODLjwkXTDS8PHaZ38IuqYFo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5251/api/ToDo/DeleteToDoItemTag?id=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5251",
+					"path": [
+						"api",
+						"ToDo",
+						"DeleteToDoItemTag"
+					],
+					"query": [
+						{
+							"key": "Status",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "Status",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "DueDateFrom",
+							"value": "2023-11-10",
+							"disabled": true
+						},
+						{
+							"key": "DueDateTo",
+							"value": "2023-11-18",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
