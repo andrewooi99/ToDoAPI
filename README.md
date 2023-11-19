@@ -27,8 +27,11 @@ _Note: to view the API contracts visit http://localhost:5251/swagger
 
 At the ./ folder, open cmd terminal, then execute the following instructions in order
 
-- Run cmd terminal in `./ folder`
-  - Execute `docker build todoapi-v1.0.0` to allow the building of the ToDoAPI image to docker
+-  If database is running in local, this need to be done first (ignore if database is not local). This is for Docker to helps us to resolve `host.docker.internal` to internal IP address used by the local host machine
+  - Update `ConnStr` connection string in `./ToDoAPI/appsettings.json`, change from `Data Source=localhost` to `Data Source=host.docker.internal`.
+
+- Run cmd terminal in `./` folder
+  - Execute `docker build todoapi-v1.0.0` to allow the building of the ToDoAPI image to docker, you can name it according to your release version
   - Upon successful build, execute `docker run -p 5251:80 --name todoapiv1.0.0 todoapi-v1.0.0` to run ToDoAPI container in docker, with name as todoapi-v1.0.0 in port 5251
 
 _Note: ToDoAPI in now hosted in docker containers running under http://localhost:5251/api
