@@ -46,12 +46,12 @@ The REST API to the ToDo List is described below.
 		 
 ### Response
 
-	HTTP/1.1 500 Internal Server Error
+	HTTP/1.1 200 OK
 	Content-Type: application/json; charset=utf-8
-	Date: Sun, 19 Nov 2023 04:22:31 GMT
+	Date: Sun, 19 Nov 2023 04:27:27 GMT
 	Transfer-Encoding: chunked
 	 
-	{"status":"Error","message":"User Already Exists!"}
+	{"status":"Success","message":"Registration Successful!"}
 	
 ## User Registration
 
@@ -99,7 +99,7 @@ The REST API to the ToDo List is described below.
 	
 # ToDo API CRUD
 
-## Get ToDo With Tags
+## Get ToDo List With Tags
 
 ### Request 
 
@@ -150,7 +150,60 @@ The REST API to the ToDo List is described below.
 		"updatedBy": "ToDoAdmin"
 	}]
 	
+## Get ToDo With Tags By Id
+
+### Request 
+
+`GET /api/ToDo/GetToDoItemWithTagsById`
+
+	curl --location 'http://localhost:5251/api/ToDo/GetToDoItemWithTagsById?id=1' \
+	--header 'Authorization: Bearer token'
+	
+### Response
+
+	HTTP/1.1 200 OK
+	Content-Type: application/json; charset=utf-8
+	Date: Sun, 19 Nov 2023 06:02:53 GMT
+	Transfer-Encoding: chunked
+	
+	{
+		"id": 1,
+		"name": "ToDo 1",
+		"description": "Test Update By User",
+		"dueDate": "2023-11-25T00:00:00",
+		"status": 1,
+		"priority": 2,
+		"toDoItemTagList": [
+			{
+				"id": 1,
+				"toDoItemId": 1,
+				"tagKey": "ToDo Tag Update By User",
+				"tagValue": "ToDo Tag Update Value",
+				"createdAt": "2023-11-17T17:48:54.42",
+				"createdBy": "ToDoAdmin",
+				"updatedAt": "2023-11-19T13:36:59.757",
+				"updatedBy": "User20231119021620"
+			},
+			{
+				"id": 2,
+				"toDoItemId": 1,
+				"tagKey": "ToDo Tag Update",
+				"tagValue": "ToDo Tag Update Value",
+				"createdAt": "2023-11-17T17:48:54.42",
+				"createdBy": "ToDoAdmin",
+				"updatedAt": "2023-11-19T13:36:59.757",
+				"updatedBy": "User20231119021620"
+			}
+		],
+		"createdAt": "2023-11-17T17:48:54.42",
+		"createdBy": "ToDoAdmin",
+		"updatedAt": "2023-11-19T13:36:59.757",
+		"updatedBy": "User20231119021620"
+	}
+	
 ## Create ToDo
+
+Allow ToDo Sharing by adding username to SharedBy parameters
 
 ### Request 
 
@@ -174,7 +227,8 @@ The REST API to the ToDo List is described below.
 				"TagKey": "ToDo 2 Tag 2",
 				"TagValue": "ToDo 2 Value 2"
 			}
-		]
+		],
+		"SharedBy": [ "User1", "User2" ]
 	}'
 		 
 ### Response
@@ -188,6 +242,8 @@ The REST API to the ToDo List is described below.
 	
 ## Update ToDo
 
+Only owner of ToDo allowed to update SharedBy
+
 ### Request 
 
 `PATCH /api/ToDo/UpdateToDoItem`
@@ -200,7 +256,8 @@ The REST API to the ToDo List is described below.
 		"Name": "ToDo 1",
 		"Description": "Test",
 		"Status": 1,
-		"Priority": 2
+		"Priority": 2, 
+		"SharedBy": [ "User1", "User2" ]
 	}'
 		 
 ### Response
@@ -256,6 +313,33 @@ Delete ToDo will delete all the ToDo Tags associated
 	
 	{"status":"Success","message":"Create ToDo Tag Successful"}
 	
+## Get ToDo Tags By Id
+
+### Request 
+
+`GET /api/ToDo/GetToDoItemTagsById`
+
+	curl --location 'http://localhost:5251/api/ToDo/GetToDoItemTagsById?id=1' \
+	--header 'Authorization: Bearer token'
+	
+### Response
+
+	HTTP/1.1 200 OK
+	Content-Type: application/json; charset=utf-8
+	Date: Sun, 19 Nov 2023 06:04:43 GMT
+	Transfer-Encoding: chunked
+	
+	{
+		"id": 1,
+		"toDoItemId": 1,
+		"tagKey": "ToDo Tag Update By User",
+		"tagValue": "ToDo Tag Update Value",
+		"createdAt": "2023-11-17T17:48:56.253",
+		"createdBy": "ToDoAdmin",
+		"updatedAt": "2023-11-19T13:37:24.513",
+		"updatedBy": "User20231119021620"
+	}
+
 ## Update ToDo Tag
 
 ### Request 
@@ -294,7 +378,6 @@ Delete ToDo will delete all the ToDo Tags associated
 	HTTP/1.1 200 OK
 	Content-Type: application/json; charset=utf-8
 	Date: Sun, 19 Nov 2023 04:51:58 GMT
-	Server: Kestrel
 	Transfer-Encoding: chunked
 	
 	{"status":"Success","message":"Delete ToDo Tag Successful"}
