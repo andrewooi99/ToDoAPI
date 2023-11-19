@@ -14,6 +14,7 @@ namespace ToDoAPI.BLL.Converters
                 DueDate = item.DueDate,
                 Status = item.Status,
                 Priority = item.Priority,
+                SharedBy = string.IsNullOrWhiteSpace(item.SharedBy) ? null : item.SharedBy.Split(','),
                 CreatedAt = item.CreatedAt,
                 CreatedBy = item.CreatedBy,
                 UpdatedAt = item.UpdatedAt,

@@ -122,6 +122,9 @@ The REST API to the ToDo List is described below.
 		"dueDate": "2023-11-25T00:00:00",
 		"status": 1,
 		"priority": 2,
+		"sharedBy": [
+			"User20231119021620"
+		],
 		"toDoItemTagList": [
 			{
 				"id": 1,
@@ -173,6 +176,9 @@ The REST API to the ToDo List is described below.
 		"dueDate": "2023-11-25T00:00:00",
 		"status": 1,
 		"priority": 2,
+		"sharedBy": [
+			"User20231119021620"
+		],		
 		"toDoItemTagList": [
 			{
 				"id": 1,
