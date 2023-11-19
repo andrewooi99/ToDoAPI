@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"ToDoAdmin\",\r\n    \"password\": \"Password@123\",\r\n    \"email\": \"todo_admin@gmail.com\"\r\n}",
+					"raw": "{\r\n    \"username\": \"ToDoAdmin1\",\r\n    \"password\": \"Password@123\",\r\n    \"email\": \"todo_admin@gmail.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -103,7 +103,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\r\n}",
+					"raw": "{\r\n    \"Username\": \"User20231119040934804\",\r\n    \"password\": \"Password@123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -134,7 +134,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVG9Eb0FkbWluIiwianRpIjoiNmI0MjhkYTMtOTg4MS00NzRmLWFhOGEtNWQ5Mzg2ZmEwZDE3IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjpbIkFkbWluIiwiVXNlciJdLCJleHAiOjE3MDA4ODkzNzEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.NCIBABBvJB2QSHjPhfo6ODLjwkXTDS8PHaZ38IuqYFo",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVXNlcjIwMjMxMTE5MDQwOTM0ODA0IiwianRpIjoiYmZiN2NjMzktYmIwMi00NDc0LTk0M2MtZDYwMzlkZmQxNWQ2IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiVXNlciIsImV4cCI6MTcwMTAyMDk1NiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo0MjAwIn0.TLFB1aodC5wni7T7CGVCJsu8Mxl6sEAmthjiMSPJrgU",
 							"type": "string"
 						}
 					]
@@ -142,7 +142,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5251/api/ToDo/GetToDoItemWithTags?Status=1&Status=2&Status=3&DueDateFrom=2023-11-10&DueDateTo=2023-11-20&Sorting=DueDate|DESC&Sorting=Status|ASC",
+					"raw": "http://localhost:5251/api/ToDo/GetToDoItemWithTags?Status=1&Status=2&Status=3&DueDateFrom=2023-11-10&DueDateTo=2023-11-25&Sorting=DueDate|DESC&Sorting=Status|ASC",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -172,7 +172,7 @@
 						},
 						{
 							"key": "DueDateTo",
-							"value": "2023-11-20"
+							"value": "2023-11-25"
 						},
 						{
 							"key": "Sorting",
@@ -188,6 +188,80 @@
 			"response": []
 		},
 		{
+			"name": "GetToDoItemWithTagsById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVXNlcjIwMjMxMTE5MDIxNjIwIiwianRpIjoiN2UwNTViNTctMzg4ZC00MzI0LWE3MWEtYjFiNmI5MTM4MTA0IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiVXNlciIsImV4cCI6MTcwMTAxOTQxOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo0MjAwIn0.PTPkSlT_3hXpSidmsMj8dWMvasvi6koZrtM9g2Lu738",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5251/api/ToDo/GetToDoItemWithTagsById?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5251",
+					"path": [
+						"api",
+						"ToDo",
+						"GetToDoItemWithTagsById"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetToDoItemTagsById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVXNlcjIwMjMxMTE5MDIxNjIwIiwianRpIjoiN2UwNTViNTctMzg4ZC00MzI0LWE3MWEtYjFiNmI5MTM4MTA0IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiVXNlciIsImV4cCI6MTcwMTAxOTQxOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo0MjAwIn0.PTPkSlT_3hXpSidmsMj8dWMvasvi6koZrtM9g2Lu738",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5251/api/ToDo/GetToDoItemTagsById?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5251",
+					"path": [
+						"api",
+						"ToDo",
+						"GetToDoItemTagsById"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "CreateToDoItem",
 			"request": {
 				"auth": {
@@ -195,7 +269,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVG9Eb0FkbWluIiwianRpIjoiNmI0MjhkYTMtOTg4MS00NzRmLWFhOGEtNWQ5Mzg2ZmEwZDE3IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjpbIkFkbWluIiwiVXNlciJdLCJleHAiOjE3MDA4ODkzNzEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.NCIBABBvJB2QSHjPhfo6ODLjwkXTDS8PHaZ38IuqYFo",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVG9Eb0FkbWluIiwianRpIjoiNjdmNjRhYzQtYzVmZS00MzUwLTg3MzAtZDg3Yjg5YjA1NGIwIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjpbIkFkbWluIiwiVXNlciJdLCJleHAiOjE3MDEwMjAzMzgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.dqmFu6gR0BvNgwzGLb0OxYGu_Q74A8ZI96Q8LX54VP0",
 							"type": "string"
 						}
 					]
@@ -204,7 +278,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Name\": \"ToDo 2\",\r\n    \"Description\": \"ToDo 2 Description\",\r\n    \"DueDate\": \"2023-11-20\",\r\n    \"Status\": 2,\r\n    \"Priority\": 1,\r\n    \"ToDoItemTagList\": [\r\n        {\r\n            \"TagKey\": \"ToDo 2 Tag 1\",\r\n            \"TagValue\": \"ToDo 2 Value 1\"\r\n        },        \r\n        {\r\n            \"TagKey\": \"ToDo 2 Tag 2\",\r\n            \"TagValue\": \"ToDo 2 Value 2\"\r\n        }\r\n    ]\r\n}",
+					"raw": "{\r\n    \"Name\": \"ToDo 55\",\r\n    \"Description\": \"ToDo 2 Description\",\r\n    \"DueDate\": \"2023-11-20\",\r\n    \"Status\": 2,\r\n    \"Priority\": 1,\r\n    \"ToDoItemTagList\": [\r\n        {\r\n            \"TagKey\": \"ToDo 2 Tag 1\",\r\n            \"TagValue\": \"ToDo 2 Value 1\"\r\n        },        \r\n        {\r\n            \"TagKey\": \"ToDo 2 Tag 2\",\r\n            \"TagValue\": \"ToDo 2 Value 2\"\r\n        }\r\n    ],\r\n    \"SharedBy\": [ \"User20231119021620\", \"User20231119040934804\" ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -257,7 +331,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVG9Eb0FkbWluIiwianRpIjoiNmI0MjhkYTMtOTg4MS00NzRmLWFhOGEtNWQ5Mzg2ZmEwZDE3IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjpbIkFkbWluIiwiVXNlciJdLCJleHAiOjE3MDA4ODkzNzEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.NCIBABBvJB2QSHjPhfo6ODLjwkXTDS8PHaZ38IuqYFo",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVG9Eb0FkbWluIiwianRpIjoiZTE5NWY3ZjktNjhmYi00MDAzLTk2YzgtZjU2NGE2MTY3YWQyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjpbIkFkbWluIiwiVXNlciJdLCJleHAiOjE3MDEwMjEzODYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.RfKCTxpiDnjggvLCovKnn3YRPXQtrFdP7k8zjsDjCIc",
 							"type": "string"
 						}
 					]
@@ -266,7 +340,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Id\": 1,\r\n    \"Name\": \"ToDo 1\",\r\n    \"Description\": \"Test\",\r\n    \"Status\": 1,\r\n    \"Priority\": 2\r\n}",
+					"raw": "{\r\n    \"Id\": 93,\r\n    \"Name\": \"ToDo 1\",\r\n    \"Description\": \"Test Update By User20231119040934804\",\r\n    \"Status\": 1,\r\n    \"Priority\": 2,\r\n    \"SharedBy\": [\"User20231119021620\"]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -327,7 +401,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5251/api/ToDo/DeleteToDoItem?id=2",
+					"raw": "http://localhost:5251/api/ToDo/DeleteToDoItem?id=68",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -361,7 +435,7 @@
 						},
 						{
 							"key": "id",
-							"value": "2"
+							"value": "68"
 						}
 					]
 				}
@@ -385,7 +459,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"ToDoId\": 1,\r\n    \"TagKey\": \"ToDo 1 Extra 2\",\r\n    \"TagValue\": null\r\n}",
+					"raw": "{\r\n    \"ToDoId\": 1,\r\n    \"TagKey\": \"ToDo 1 Extra 3\",\r\n    \"TagValue\": \"Tag Value Extra\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -416,7 +490,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVG9Eb0FkbWluIiwianRpIjoiNmI0MjhkYTMtOTg4MS00NzRmLWFhOGEtNWQ5Mzg2ZmEwZDE3IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjpbIkFkbWluIiwiVXNlciJdLCJleHAiOjE3MDA4ODkzNzEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.NCIBABBvJB2QSHjPhfo6ODLjwkXTDS8PHaZ38IuqYFo",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVXNlcjIwMjMxMTE5MDIxNjIwIiwianRpIjoiN2UwNTViNTctMzg4ZC00MzI0LWE3MWEtYjFiNmI5MTM4MTA0IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiVXNlciIsImV4cCI6MTcwMTAxOTQxOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo0MjAwIn0.PTPkSlT_3hXpSidmsMj8dWMvasvi6koZrtM9g2Lu738",
 							"type": "string"
 						}
 					]
@@ -425,7 +499,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Id\": 6,\r\n    \"TagKey\": \"ToDo Tag 6\",\r\n    \"TagValue\": \"tag 6\"\r\n}",
+					"raw": "{\r\n    \"Id\": 1,\r\n    \"TagKey\": \"ToDo Tag Update By User\",\r\n    \"TagValue\": \"ToDo Tag Update Value\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -486,7 +560,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5251/api/ToDo/DeleteToDoItemTag?id=5",
+					"raw": "http://localhost:5251/api/ToDo/DeleteToDoItemTag?id=55",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -520,7 +594,7 @@
 						},
 						{
 							"key": "id",
-							"value": "5"
+							"value": "55"
 						}
 					]
 				}
