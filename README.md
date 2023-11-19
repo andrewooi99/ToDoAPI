@@ -8,7 +8,7 @@
 - [MSSQL](https://www.microsoft.com/en-my/sql-server/sql-server-downloads)
 - [Postman](https://www.postman.com/downloads/)
 
-### How to run it local dotnet 
+### How to run it in local dotnet 
 
 - `cd ./ToDoAPI`
   - `dotnet restore`
@@ -20,9 +20,18 @@
   
 - Postman Collection
   - PostmanScript/ToDoAPI.postman_collection.json [How to import Postman Script](https://apidog.com/blog/how-to-import-export-postman-collection-data/)
-  
+
 _Note: to view the API contracts visit http://localhost:5251/swagger
 
+### How to run it in docker
+
+At the ./ folder, open cmd terminal, then execute the following instructions in order
+
+- Run cmd terminal in `./ folder`
+  - Execute `docker build todoapi-v1.0.0` to allow the building of the ToDoAPI image to docker
+  - Upon successful build, execute `docker run -p 5251:80 --name todoapiv1.0.0 todoapi-v1.0.0` to run ToDoAPI container in docker, with name as todoapi-v1.0.0 in port 5251
+
+_Note: ToDoAPI in now hosted in docker containers running under http://localhost:5251/api
 
 # ToDo List REST API
 
