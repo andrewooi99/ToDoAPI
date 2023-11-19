@@ -36,7 +36,8 @@ namespace ToDoAPI.DAL.Repositories
         public async Task<ToDoItemTag?> GetToDoItemTagById(long id, string? accessBy)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(@"SELECT * FROM [ToDoItemTags] tdit WITH(NOLOCK) 
+            sb.Append(@"SELECT tdit.* FROM [ToDoItemTags] tdit WITH(NOLOCK) 
+                        LEFT JOIN [ToDoItems] tdi WITH(NOLOCK) ON tdit.[ToDoItemId] = tdi.[Id]
                         WHERE 
                              tdit.[Id] = @Id ");
 
@@ -45,7 +46,7 @@ namespace ToDoAPI.DAL.Repositories
 
             if (!string.IsNullOrWhiteSpace(accessBy))
             {
-                sb.Append(" AND tdit.[CreatedBy] = @AccessBy ");
+                sb.Append(" AND (tdit.[CreatedBy] = @AccessBy OR CONCAT(',', tdi.[SharedBy],',') LIKE CONCAT('%,', @AccessBy ,',%')) ");
                 parameters.Add("@AccessBy", accessBy, DbType.String);
             }
 

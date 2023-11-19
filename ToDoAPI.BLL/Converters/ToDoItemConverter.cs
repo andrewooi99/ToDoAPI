@@ -31,6 +31,7 @@ namespace ToDoAPI.BLL.Converters
                 DueDate = data.DueDate,
                 Status = data.Status,
                 Priority = data.Priority,
+                SharedBy = data.SharedBy,
                 CreatedAt = data.CreatedAt,
                 CreatedBy = data.CreatedBy,
                 UpdatedAt = data.UpdatedAt,

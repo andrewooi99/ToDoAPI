@@ -19,6 +19,8 @@ namespace ToDoAPI.Models
 
         public int? Priority { get; set; }
 
+        public string[]? SharedBy { get; set; }
+
         public string? UpdatedBy { get; set; }
 
         public string? ErrorMessage { get; set; }
@@ -50,6 +52,7 @@ namespace ToDoAPI.Models
                 DueDate = !string.IsNullOrWhiteSpace(DueDate) ? Convert.ToDateTime(DueDate) : null,
                 Status = Status ?? 0,
                 Priority = Priority,
+                SharedBy = SharedBy != null && SharedBy.Length > 0 ? string.Join(',', SharedBy) : null,
                 UpdatedBy = UpdatedBy
             };
         }

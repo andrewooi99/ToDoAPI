@@ -20,6 +20,8 @@ namespace ToDoAPI.Models
 
         public int? Priority { get; set; }
 
+        public string[]? SharedBy { get; set; }
+
         public string? CreatedBy { get; set; }
 
         public string? ErrorMessage { get; set; }
@@ -58,6 +60,7 @@ namespace ToDoAPI.Models
                 DueDate = Convert.ToDateTime(DueDate),
                 Status = Status.Value,
                 Priority = Priority,
+                SharedBy = SharedBy != null && SharedBy.Length > 0 ? string.Join(',', SharedBy) : null,
                 CreatedBy = CreatedBy
             };
         }
@@ -67,8 +70,12 @@ namespace ToDoAPI.Models
             var result = new List<BLL.Models.ToDoItemTag>();
             if (ToDoItemTagList != null)
             {
-                result.AddRange(ToDoItemTagList.Select(x => new BLL.Models.ToDoItemTag { TagKey = x.TagKey, 
-                    TagValue = x.TagValue, CreatedBy = CreatedBy }));
+                result.AddRange(ToDoItemTagList.Select(x => new BLL.Models.ToDoItemTag
+                {
+                    TagKey = x.TagKey,
+                    TagValue = x.TagValue,
+                    CreatedBy = CreatedBy
+                }));
             }
 
             return result;

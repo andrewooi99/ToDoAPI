@@ -14,6 +14,8 @@
 
         public int? Priority { get; set; }
 
+        public string? SharedBy { get; set; }
+
         public string UpdatedBy { get; set; }
     }
 }

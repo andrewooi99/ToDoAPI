@@ -69,6 +69,12 @@ namespace ToDoAPI.BLL.Services
                 if (currentToDoItem == null)
                     return false;
 
+                var sharedBy = currentToDoItem.SharedBy;
+
+                // Only allow ToDo creator To update who to shared to
+                if (currentToDoItem.CreatedBy == update.UpdatedBy)
+                    sharedBy = !string.IsNullOrWhiteSpace(update.SharedBy) ? update.SharedBy : currentToDoItem.SharedBy;
+
                 var updateToDo = new DAL.DataModels.ToDoItem
                 {
                     Id = currentToDoItem.Id,
@@ -77,6 +83,7 @@ namespace ToDoAPI.BLL.Services
                     DueDate = update.DueDate.HasValue ? update.DueDate.Value : currentToDoItem.DueDate,
                     Status = update.Status.HasValue ? update.Status.Value : currentToDoItem.Status,
                     Priority = update.Priority,
+                    SharedBy = sharedBy, 
                     UpdatedBy = update.UpdatedBy
                 };
 

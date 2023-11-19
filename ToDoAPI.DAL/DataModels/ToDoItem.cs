@@ -8,5 +8,6 @@
         public DateTime DueDate { get; set; }
         public int Status { get; set; }
         public int? Priority { get; set; }
+        public string? SharedBy { get; set; }
     }
 }

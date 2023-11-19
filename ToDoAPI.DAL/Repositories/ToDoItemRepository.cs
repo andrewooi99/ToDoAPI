@@ -33,7 +33,7 @@ namespace ToDoAPI.DAL.Repositories
 
             if (!string.IsNullOrWhiteSpace(accessBy))
             {
-                sb.Append(" AND [CreatedBy] = @AccessBy ");
+                sb.Append(" AND ([CreatedBy] = @AccessBy OR CONCAT(',', [SharedBy],',') LIKE CONCAT('%,', @AccessBy ,',%')) ");
                 parameters.Add("@AccessBy", accessBy, DbType.String);
             }
 
@@ -75,11 +75,10 @@ namespace ToDoAPI.DAL.Repositories
 
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@Id", id, DbType.Int64);
-            parameters.Add("@AccessBy", accessBy, DbType.String);
 
             if (!string.IsNullOrWhiteSpace(accessBy))
             {
-                sb.Append(" AND [CreatedBy] = @AccessBy ");
+                sb.Append(" AND ([CreatedBy] = @AccessBy OR CONCAT(',', [SharedBy],',') LIKE CONCAT('%,', @AccessBy ,',%')) ");
                 parameters.Add("@AccessBy", accessBy, DbType.String);
             }
 
@@ -93,11 +92,11 @@ namespace ToDoAPI.DAL.Repositories
         public async Task<long> CreateToDoItem(ToDoItem create)
         {
             var sql = @"INSERT INTO [ToDoItems] 
-                        ([Name], [Description], [DueDate], [Status], 
-                         [Priority], [CreatedAt], [CreatedBy])
+                        ([Name], [Description], [DueDate], [Status], [Priority],
+                         [SharedBy], [CreatedAt], [CreatedBy])
                         VALUES
-                        (@Name, @Description, @DueDate, @Status, 
-                         @Priority, @CreatedAt, @CreatedBy) 
+                        (@Name, @Description, @DueDate, @Status, @Priority,
+                         @SharedBy, @CreatedAt, @CreatedBy) 
                         SELECT SCOPE_IDENTITY() ";
 
             DynamicParameters parameters = new DynamicParameters();
@@ -106,6 +105,7 @@ namespace ToDoAPI.DAL.Repositories
             parameters.Add("@DueDate", create.DueDate, DbType.DateTime);
             parameters.Add("@Status", create.Status, DbType.Int32);
             parameters.Add("@Priority", create.Priority, DbType.Int32);
+            parameters.Add("@SharedBy", create.SharedBy, DbType.String);
             parameters.Add("@CreatedAt", DateTime.Now, DbType.DateTime);
             parameters.Add("@CreatedBy", create.CreatedBy, DbType.String);
 
@@ -119,11 +119,11 @@ namespace ToDoAPI.DAL.Repositories
         public async Task<bool> CreateToDoItemAndItemTag(ToDoItem create, List<ToDoItemTag> toDoItemTagList)
         {
             var itemSql = @"INSERT INTO [ToDoItems] 
-                        ([Name], [Description], [DueDate], [Status], 
-                         [Priority], [CreatedAt], [CreatedBy])
+                        ([Name], [Description], [DueDate], [Status], [Priority],
+                         [SharedBy], [CreatedAt], [CreatedBy])
                         VALUES
-                        (@Name, @Description, @DueDate, @Status, 
-                         @Priority, @CreatedAt, @CreatedBy) 
+                        (@Name, @Description, @DueDate, @Status, @Priority,
+                         @SharedBy, @CreatedAt, @CreatedBy) 
                         SELECT SCOPE_IDENTITY() ";
 
             DynamicParameters itemParameters = new DynamicParameters();
@@ -132,6 +132,7 @@ namespace ToDoAPI.DAL.Repositories
             itemParameters.Add("@DueDate", create.DueDate, DbType.DateTime);
             itemParameters.Add("@Status", create.Status, DbType.Int32);
             itemParameters.Add("@Priority", create.Priority, DbType.Int32);
+            itemParameters.Add("@SharedBy", create.SharedBy, DbType.String);
             itemParameters.Add("@CreatedAt", DateTime.Now, DbType.DateTime);
             itemParameters.Add("@CreatedBy", create.CreatedBy, DbType.String);
 
@@ -190,6 +191,7 @@ namespace ToDoAPI.DAL.Repositories
                             [DueDate] = @DueDate,
                             [Status] = @Status,
                             [Priority] = @Priority,
+                            [SharedBy] = @SharedBy,
                             [UpdatedAt] = @UpdatedAt,
                             [UpdatedBy] = @UpdatedBy
                         WHERE [Id] = @Id ";
@@ -201,6 +203,7 @@ namespace ToDoAPI.DAL.Repositories
             parameters.Add("@DueDate", update.DueDate, DbType.DateTime);
             parameters.Add("@Status", update.Status, DbType.Int32);
             parameters.Add("@Priority", update.Priority, DbType.Int32);
+            parameters.Add("@SharedBy", update.SharedBy, DbType.String);
             parameters.Add("@UpdatedAt", DateTime.Now, DbType.DateTime);
             parameters.Add("@UpdatedBy", update.UpdatedBy, DbType.String);
 
