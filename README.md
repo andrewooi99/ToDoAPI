@@ -1,5 +1,7 @@
 # ToDo List API Application
 
+![ToDo API Diagram](https://github.com/andrewooi99/ToDoAPI/blob/release/1.0.0/ToDoAPI%20Diagram.png)
+
 ## Local machine setup
 
 ### Prerequisites
